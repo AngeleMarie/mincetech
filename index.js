@@ -48,7 +48,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors({
-  origin: ["https://mince-web-lmg4.vercel.app", "http://localhost:3000","http://localhost:3000","exp://10.12.75.219:8081"],  
+  origin: ["https://mince-web-lmg4.vercel.app", "http://localhost:3000","http://localhost:3001","exp://10.12.75.219:8081"],  
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
