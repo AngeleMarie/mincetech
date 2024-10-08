@@ -1,4 +1,4 @@
-import { io, activeUsers } from '../../server.js';
+import { io, activeUsers } from '../../index.js';
 import Notification from '../../models/notificationModels/notificationSchema.js';
 import admin from '../../config/firebase.js';
 
