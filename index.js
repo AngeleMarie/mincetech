@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import session from "express-session";
 import passport from "passport";
 import http from "http";
+import cors from "cors";
 import { Server } from "socket.io";
 import dbConnection from "./config/dbConnection.js";
 import authRoutes from "./routes/userRoutes/auth.js";
@@ -46,6 +47,11 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors({
+  origin: ["https://mince-web-lmg4.vercel.app", "http://localhost:3000","http://localhost:3000","exp://10.12.75.219:8081"],  
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // Database connection
 dbConnection();
@@ -74,8 +80,8 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
+  origin: ["https://mince-web-lmg4.vercel.app", "http://localhost:3000","http://localhost:3000","exp://10.12.75.219:8081"],  
+   methods: ["GET", "POST"],
   },
 });
 
